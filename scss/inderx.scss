@@ -1,0 +1,14 @@
+@mixin flexbox{
+     display: flex;
+     flex-flow: row nowrap;
+}
+
+
+@mixin  flexboxCwnter {
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    @include flexbox;
+}
