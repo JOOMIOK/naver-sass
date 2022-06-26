@@ -1,0 +1,29 @@
+.formControl{
+    &__input{
+        width: 100%;
+        height: 48px;
+        border: 1px solid $border-dafault;
+    }   
+    
+    &__button{
+        width: 100%;
+        height: 56px;
+        color: $text-dark;
+        background: $primary;
+        padding: 0;
+        border: 0;
+    }
+}
+
+// 에러메세지
+.errorMessage{
+    display: none;
+    font-size: rem(12px);
+    line-height: 1.5;
+    letter-spacing: -0.1em;
+    color: $warning;
+}
+
+.is--invalid .errorMessage{
+    display: block;
+}

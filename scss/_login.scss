@@ -14,7 +14,7 @@
  }
 }
 
-//로고
+// 로고
 .logo{
     @include autoMargin;
 
@@ -42,16 +42,30 @@
     }
 }
 
-//로그인 폼
+// 로그인 폼
 .loginForm__container{
     @include flexbox(column);    
 
     @include desktop{
         @include boxFixed;
     }
+
+    .errorMessage{
+        margin-top: 8px;
+    }
  }
 
-.userSelectInfo{
-    background: yellow;
-    order: 1;
+.userPassword{
+    margin-top:10px ;
 }
+
+.userSelectInfo{
+    order: 1;
+    margin-top: 10px;
+}
+
+.loginButton{
+margin-top: 20px;
+}
+
+// 폼 관련 입력 서식
