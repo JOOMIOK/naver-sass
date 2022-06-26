@@ -1,7 +1,12 @@
+
 .container{
- @include mobile{
+  @include boxFixed;
+  background: pink;
+
+
+  @include mobile{
     padding-top: 25px; 
-  @include paddingX(16px);
+     @include paddingX(16px);
  }
 
  @include desktop{
@@ -9,6 +14,7 @@
  }
 }
 
+//로고
 .logo{
     @include autoMargin;
 
@@ -28,7 +34,24 @@
         display: block;
 
         &:focus{
-            outline-offset: 10px;
+            outline-offset: 10px
+            
+            
+            ;
         }
     }
+}
+
+//로그인 폼
+.loginForm__container{
+    @include flexbox(column);    
+
+    @include desktop{
+        @include boxFixed;
+    }
+ }
+
+.userSelectInfo{
+    background: yellow;
+    order: 1;
 }
