@@ -41,3 +41,27 @@ $breakpoint: 768px;
       @content;
     }
   }
+
+  //마진 관련 믹스인
+  @mixin autoMargin {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @mixin marginX($marginX) {
+    padding-left: $marginX;
+    padding-right: $marginX;  
+  }
+  @mixin marginY($marginY) {
+    padding-top: $marginY;
+    padding-bottom: $marginY;  
+  }
+  
+  //패딩 관련 믹스인
+  @mixin paddingX($paddingX) {
+    padding-left: $paddingX;
+    padding-right: $paddingX;  
+  }
+  @mixin paddingY($paddingY) {
+    padding-top: $paddingY;
+    padding-bottom: $paddingY;  
+  }
