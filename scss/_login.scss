@@ -84,13 +84,15 @@
   @include mobile{
     display: none;
   }
- 
+   
  
    // 스위치 컨퍼너트
   &__checkbox{
     -webkit-appearance: none;
     appearance: none;
     position: absolute;
+    width: 44px;
+    height: 24px;
   }
 
   &__label{
@@ -101,6 +103,7 @@
     background: $silver;
     border-radius: 12px;
     padding: 0 4px;
+    
     &::before{
       content: "";
       position: absolute;

@@ -1,5 +1,18 @@
+// 포커스 이동시 아웃라인
+*:focus{
+  outline: 0;
+}
+
+*:focus-visible{
+  box-shadow: 0 0 2px 2px darkblue;
+  border-radius: 2px;
+}
+
+
+
 .formControl{
   position: relative;
+ 
   
   &__input{
     width: 100%;
@@ -16,6 +29,8 @@
     padding: 0;
     border: 0;
   }
+
+ 
 }
 
 //커스텀 체크박스
