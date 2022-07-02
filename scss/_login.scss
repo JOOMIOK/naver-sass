@@ -57,7 +57,6 @@
 .userSelectInfo{
   order: 1;
   margin-top: 10px;
-  background: yellow;
   @include flexbox($align: center);
 
   @include mobile{
@@ -71,7 +70,7 @@
   }
 }  
 .ipSecurityLink{
-
+  margin-right: 8px;
   @include mobile{
     display: none;
   }
@@ -85,28 +84,64 @@
   @include mobile{
     display: none;
   }
-
+ 
+ 
+   // 스위치 컨퍼너트
   &__checkbox{
     -webkit-appearance: none;
     appearance: none;
+    position: absolute;
   }
 
-  &__label::before{
-    display: inline-block;
-    width: 3em;
-    text-align: right;
-    content: "off";
-    color: $secondary;
-    font-weight: 700;
+  &__label{
+    position: relative;
+    display: block;
+    width: 44px;
+    height: 24px;
+    background: $silver;
+    border-radius: 12px;
+    padding: 0 4px;
+    &::before{
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      background: $white;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      transition: all 400ms;
+    }
+  }
+
+  &__checkbox:checked + &__label{
+    background: $primary;
   }
 
   &__checkbox:checked + &__label::before{
-    content: "on";
-    color: $primary;
+    transform:translate(100%, -50%) ;
 
   }
 
-}
+  // 온 오프 텍스트 으스위치 컨포넌트
+  // &__label::before{
+  //   display: inline-block;
+  //   width: 3em;
+  //   text-align: right;
+  //   content: "off";
+  //   color: $secondary;
+  //   font-weight: 700;
+  // }
+  // &__checkbox:checked + &__label::before{
+  //   content: "on";
+  //   color: $primary;
+  // }
+
+  }
+
+
+
+
 .loginButton{
   margin-top: 20px;
 }  
