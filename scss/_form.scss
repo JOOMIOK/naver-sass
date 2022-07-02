@@ -1,29 +1,61 @@
 .formControl{
-    &__input{
-        width: 100%;
-        height: 48px;
-        border: 1px solid $border-dafault;
-    }   
-    
-    &__button{
-        width: 100%;
-        height: 56px;
-        color: $text-dark;
-        background: $primary;
-        padding: 0;
-        border: 0;
-    }
+  &__input{
+    width: 100%;
+    height: 48px;
+    border: 1px solid $border-default;
+    padding: 14px 0 0 0;
+  }
+
+  &__button{
+    width: 100%;
+    height: 56px;
+    color: $text-dark;
+    background: $primary;
+    padding: 0;
+    border: 0;
+  }
 }
 
-// 에러메세지
+//에러 메시지
+
 .errorMessage{
-    display: none;
-    font-size: rem(12px);
-    line-height: 1.5;
-    letter-spacing: -0.1em;
-    color: $warning;
+  display: none;
+  font-size: rem(12px);
+  line-height: 1.5;
+  letter-spacing: -0.1em;
+  color: $warning;
+}
+
+//커스텀 체크박스
+.customCheckbox{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+
+  &focus + &Label::before{
+    border: 2px solid red;
+    border-radius: 2px;
+  }
+
+  &Label{
+    @include flexbox($align: center);
+
+    &::before{
+      content: "";
+      width: 24px;
+      height: 24px;
+      margin-right: 4px;
+      background: url(./../images/unchecked.svg) no-repeat 0 0;
+    }
+  }
+
+  &
+  :checked + &Laber::before{
+    background-image: url(./../images/checked.svg);
+  }
 }
 
 .is--invalid .errorMessage{
-    display: block;
+  display: block;
 }

@@ -2,92 +2,102 @@
 $rootUnit: 16px !default;
 $breakpoint: 768px;
 
-// 단위를 제거하는 함수
+//단위를 제거하는 함수
 @function removeUnit($value){
-    @return math.div($value, ($value * 0 + 1));
-  }
-  
-// px를 rem 담위로 변경해주는 함수
-  @function rem($value, $base: $rootUnit){
-    @return removeUnit(math.div($value, $base)) * 1rem;
-  }
- 
-// 플렉스박스 믹스인  
- @mixin flexbox($dir: row, $wrap: nowrap, $just: flex-start, $align: stretch){
-    display: flex;
-    flex-direction: $dir;
-    flex-wrap: $wrap;
-    justify-content: $just;
-    align-items: $align;           
- }
+  @return math.div($value, ($value * 0 + 1));
+}
 
- @mixin flexboxCenter($dir: row, $wrap: nowrap, $just: center, $align: center){
-    display: flex;
-    flex-direction: $dir;
-    flex-wrap: $wrap;
-    justify-content: $just;
-    align-items: $align;    
- }
+//px을 rem단위로 변경해주는 함수
+@function rem($value, $base: $rootUnit){
+  @return removeUnit(math.div($value, $base)) * 1rem;
+}
 
- //미디어쿼리 믹스인
+//flex박스 믹스인
+@mixin flexbox($dir: row, $wrap: nowrap, $jc: flex-start, $align: stretch){
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $jc;
+  align-items: $align;
+}
 
- @mixin mobile{
-    @media (max-width: ($breakpoint - 1)){
-      @content;
-    }
-  }
-  @mixin desktop{
-    @media (min-width: $breakpoint){
-      @content;
-    }
-  }
+@mixin flexboxCenter($dir: row, $wrap: nowrap, $jc: center, $align: center){
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $jc;
+  align-items: $align;
+}
 
-  //마진 관련 믹스인
-  @mixin autoMargin {
-    margin-left: auto;
-    margin-right: auto;
+//미디어쿼리 믹스인
+@mixin mobile{
+  @media (max-width: ($breakpoint - 1)){
+    @content;
   }
-  @mixin marginX($marginX) {
-    padding-left: $marginX;
-    padding-right: $marginX;  
-  }
-  @mixin marginY($marginY) {
-    padding-top: $marginY;
-    padding-bottom: $marginY;  
-  }
-  
-  //패딩 관련 믹스인
-  @mixin paddingX($paddingX) {
-    padding-left: $paddingX;
-    padding-right: $paddingX;  
-  }
-  @mixin paddingY($paddingY) {
-    padding-top: $paddingY;
-    padding-bottom: $paddingY;  
-  }
+}
 
-// 접근성 관련 믹스인  
-  @mixin a11y{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    visibility: hidden;
-    clip: rect(0,0,0,0);
-    clip-path: inset(50%);
+@mixin desktop{
+  @media (min-width: $breakpoint){
+    @content;
   }
+}
 
- //박스 크기 조정 믹스인
- @mixin   boxFixed($width: 460px){
-    width: $width;
-    @include autoMargin;
- }
+// 마진 관련 믹스인
 
- @mixin  boxFull{
-  $width: 100vw;
-    width: $width;
-    position: relative;
-    left:50%;
-    margin-left:math.div(-$width, 2);
-  }
+@mixin autoMargin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// 패딩 관련 믹스인
+
+@mixin paddingX($paddingX: 0) {
+  padding-left: $paddingX;
+  padding-right: $paddingX;
+}
+
+@mixin paddingY($paddingY: 0) {
+  padding-top: $paddingY;
+  padding-bottom: $paddingY;
+}
+
+@mixin marginX($marginX){
+  margin-left: $marginX;
+  margin-right: $marginX;
+}
+
+@mixin marginY($marginY){
+  margin-top: $marginY;
+  margin-bottom: $marginY;
+}
+
+// 접근성 관련 속성
+@mixin a11y{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  visibility: hidden;
+  clip: rect(0,0,0,0);
+  clip-path: inset(50%);
+}
+
+@mixin customOutline{
+  box-shadow: 0 0 0 2px $outline;
+  border-radius: 2px;
+}
+
+// 박스 크기 조정 및 가운데 배치를 위한 믹스인
+
+@mixin boxFixed($width: 460px){
+  width: $width;
+  @include autoMargin;
+}
+
+@mixin boxFull($width: 100vw) {
+  width: $width;
+  position: relative;
+  left: 50%;
+  margin-left: math.div(-$width / 2);
+}

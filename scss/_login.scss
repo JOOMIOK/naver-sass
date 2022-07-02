@@ -1,71 +1,64 @@
-
 .container{
-  @include boxFixed;
-  background: pink;
-
-
   @include mobile{
-    padding-top: 25px; 
-     @include paddingX(16px);
- }
+    padding-top: 25px;
+    @include paddingX(16px);
 
- @include desktop{
+  }
+
+  @include desktop{
     padding-top: 50px;
- }
+  }
 }
 
 // 로고
-.logo{
-    @include autoMargin;
+.logo {
+  @include autoMargin;
+  @include paddingX;
 
-    @include mobile{
-        width: 51.25%;
-        min-width: 164px;
-        max-width: 230px;
-      @include marginY(48px);
+  @include mobile{
+    width: 51.25%;
+    min-width: 164px;
+    max-width: 230px;
+    @include paddingY(45px);
+  }
+
+  @include desktop{
+    width: 230px;
+    @include marginY(50px);
+  }
+
+  &__link{
+    display: block;
+
+    &:focus {
+      outline-offset: 10px;
     }
-
-    @include desktop{
-        width: 230px;
-        @include marginY(50px);
-    }
-
-    &__link{
-        display: block;
-
-        &:focus{
-            outline-offset: 10px
-            
-            
-            ;
-        }
-    }
+  }
 }
 
 // 로그인 폼
+
 .loginForm__container{
-    @include flexbox(column);    
+  @include flexbox(column);
 
-    @include desktop{
-        @include boxFixed;
-    }
+  @include desktop{
+    @include boxFixed;
+  }
 
-    .errorMessage{
-        margin-top: 8px;
-    }
- }
+  .errorMessage{
+    margin-top: 8px;
+  }
+}
 
 .userPassword{
-    margin-top:10px ;
+  margin-top: 10px;
 }
 
 .userSelectInfo{
-    order: 1;
-    margin-top: 10px;
+  order: 1;
+  margin-top: 10px;
 }
 
 .loginButton{
-margin-top: 20px;
+  margin-top: 20px;
 }
-
-// 폼 관련 입력 서식
