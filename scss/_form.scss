@@ -23,7 +23,7 @@
   -webkit-appearance: none;
   appearance: none;  
   position: absolute;
-  top: -1px;
+  top: 2px;
   width: 24px;
   height: 24px;
  
@@ -31,7 +31,7 @@
     @include flexbox($align:center);
     min-height:28px;
     padding-left: 28PX;
-    background: url(./../images/unchecked.svg) no-repeat 0 0/ 24px 24px;
+    background: url(./../images/unchecked.svg) no-repeat 0 50%/ 24px 24px;
   }
 
   &:checked + &Label{
